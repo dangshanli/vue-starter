@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单节点kafka的压力测试 | 你好</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/vue-starter/assets/css/0.styles.69837f5c.css" as="style"><link rel="preload" href="/vue-starter/assets/js/app.4fb917a3.js" as="script"><link rel="preload" href="/vue-starter/assets/js/2.b3f85a03.js" as="script"><link rel="preload" href="/vue-starter/assets/js/12.88cab930.js" as="script"><link rel="prefetch" href="/vue-starter/assets/js/10.31a07633.js"><link rel="prefetch" href="/vue-starter/assets/js/11.ca853f5c.js"><link rel="prefetch" href="/vue-starter/assets/js/13.9c49e8e1.js"><link rel="prefetch" href="/vue-starter/assets/js/14.a91830b2.js"><link rel="prefetch" href="/vue-starter/assets/js/3.c18845b2.js"><link rel="prefetch" href="/vue-starter/assets/js/4.6ed5998d.js"><link rel="prefetch" href="/vue-starter/assets/js/5.2df1b23a.js"><link rel="prefetch" href="/vue-starter/assets/js/6.cc85396a.js"><link rel="prefetch" href="/vue-starter/assets/js/7.e1b58a62.js"><link rel="prefetch" href="/vue-starter/assets/js/8.e32ca40d.js"><link rel="prefetch" href="/vue-starter/assets/js/9.e6386f4b.js">
+    <link rel="stylesheet" href="/vue-starter/assets/css/0.styles.69837f5c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-starter/" class="home-link router-link-active"><!----> <span class="site-name">你好</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-starter/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/vue-starter/foo/" class="nav-link router-link-active">
+  测试说明文档
+</a></div><div class="nav-item"><a href="https://bing.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-starter/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/vue-starter/foo/" class="nav-link router-link-active">
+  测试说明文档
+</a></div><div class="nav-item"><a href="https://bing.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vue-starter/foo/密码机联掉qps测试.html" class="sidebar-link">密码机联掉performance测试</a></li><li><a href="/vue-starter/foo/kafka压力测试.html" class="active sidebar-link">单节点kafka的压力测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-starter/foo/kafka压力测试.html#★配置条件" class="sidebar-link">★配置条件</a></li><li class="sidebar-sub-header"><a href="/vue-starter/foo/kafka压力测试.html#★压力测试" class="sidebar-link">★压力测试</a></li></ul></li><li><a href="/vue-starter/foo/redis配置以及基准测试.html" class="sidebar-link">redis配置以及基准测试文档</a></li><li><a href="/vue-starter/foo/dodo.html" class="sidebar-link">荒原狼🐺</a></li><li><a href="/vue-starter/foo/bar.html" class="sidebar-link">深山熊🐻</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="单节点kafka的压力测试"><a href="#单节点kafka的压力测试" class="header-anchor">#</a> 单节点kafka的压力测试</h1> <p></p><div class="table-of-contents"><ul><li><a href="#★配置条件">★配置条件</a><ul><li><a href="#kafka配置">kafka配置</a></li><li><a href="#zookeeper配置">zookeeper配置</a></li></ul></li><li><a href="#★压力测试">★压力测试</a><ul><li><a href="#节点io测试">节点IO测试</a></li><li><a href="#kafka生产消息测试">kafka生产消息测试</a></li></ul></li></ul></div><p></p> <p>以nfs为pv条件下，单broker kafka的压力测试</p> <h2 id="★配置条件"><a href="#★配置条件" class="header-anchor">#</a> ★配置条件</h2> <h3 id="kafka配置"><a href="#kafka配置" class="header-anchor">#</a> kafka配置</h3> <ul><li><p>部署节点：k8s node节点——<code>10.0.108.12</code></p></li> <li><p>broker数量：1，单节点</p></li> <li><p>垃圾收集器：G1，<code>-XX:+UseG1GC</code></p></li> <li><p>最大堆内存申请:1G，<code>-Xms1G</code></p></li> <li><p>持久化volume配置:</p></li></ul> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">capacity</span><span class="token punctuation">:</span>
+    <span class="token key atrule">storage</span><span class="token punctuation">:</span> 20Gi
+  <span class="token key atrule">accessModes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> ReadWriteMany
+  <span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> kafka<span class="token punctuation">-</span>data
+  <span class="token key atrule">persistentVolumeReclaimPolicy</span><span class="token punctuation">:</span> Retain
+  <span class="token key atrule">nfs</span><span class="token punctuation">:</span>
+    <span class="token key atrule">path</span><span class="token punctuation">:</span> /data/k8s/kafka
+    <span class="token key atrule">server</span><span class="token punctuation">:</span> 10.0.108.11
+</code></pre></div><h3 id="zookeeper配置"><a href="#zookeeper配置" class="header-anchor">#</a> zookeeper配置</h3> <p>同样部署在k8s平台的12 node节点，与kafka使用同样的nfs服务。由于其只涉及到集群元信息的存储和broker调度，这里不相干，不在赘述。</p> <h2 id="★压力测试"><a href="#★压力测试" class="header-anchor">#</a> ★压力测试</h2> <h3 id="节点io测试"><a href="#节点io测试" class="header-anchor">#</a> 节点IO测试</h3> <p>简单的测试节点的磁盘读写能力：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>hdparm -t --direct /dev/sda3<span class="token punctuation">;</span>
+<span class="token function">sync</span><span class="token punctuation">;</span>
+<span class="token function">time</span> <span class="token function">dd</span> <span class="token assign-left variable">if</span><span class="token operator">=</span>/dev/zero <span class="token assign-left variable">of</span><span class="token operator">=</span>test <span class="token assign-left variable">bs</span><span class="token operator">=</span>512k <span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">10000</span><span class="token punctuation">;</span>
+</code></pre></div><p>小结：</p> <ul><li><p>使用<code>hdparm</code>测试读取，约<code>3760.79 MB/sec</code>。</p></li> <li><p>使用dd测试写入能力,约<code>738 MB/s</code>。</p></li></ul> <h3 id="kafka生产消息测试"><a href="#kafka生产消息测试" class="header-anchor">#</a> kafka生产消息测试</h3> <div class="language-shell extra-class"><pre class="language-shell"><code>kafka-producer-perf-test.sh --topic kcsplog --record-size <span class="token number">512</span> --num-records <span class="token number">100000</span> --throughput -1 --producer-props bootstrap.servers<span class="token operator">=</span>localhost:9092
+</code></pre></div><p>简单解释：</p> <ul><li><p>记录大小：512kb</p></li> <li><p>记录数：10万</p></li> <li><p>不限流</p></li> <li><p>pod内部测试，不走端口转发</p></li></ul> <p>结果:</p> <div class="language-textile extra-class"><pre class="language-textile"><code><span class="token phrase">75093 records sent, 14338.9 records/sec (7.00 MB/sec), 916.3 ms avg latency, 2914.0 ms max latency.
+100000 records sent, 15651.901706 records/sec (7.64 MB/sec), 1638.13 ms avg latency, 3971.00 ms max latency, 656 ms 50th, 3907 ms 95th, 3961 ms 99th, 3969 ms 99.9th.
+</span></code></pre></div><ul><li><p>最大吞吐量为<code>15651条/s</code>，<code>7MB/sec</code></p></li> <li><p>最低平均时延为<code>916ms</code>，最大时延<code>3971ms</code></p></li></ul> <p>建议：内存可以适当加大到2~4G.</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-starter/foo/密码机联掉qps测试.html" class="prev">
+        密码机联掉performance测试
+      </a></span> <span class="next"><a href="/vue-starter/foo/redis配置以及基准测试.html">
+        redis配置以及基准测试文档
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-starter/assets/js/app.4fb917a3.js" defer></script><script src="/vue-starter/assets/js/2.b3f85a03.js" defer></script><script src="/vue-starter/assets/js/12.88cab930.js" defer></script>
+  </body>
+</html>

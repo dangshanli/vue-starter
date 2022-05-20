@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>redis配置以及基准测试文档 | 你好</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/vue-starter/assets/css/0.styles.69837f5c.css" as="style"><link rel="preload" href="/vue-starter/assets/js/app.4fb917a3.js" as="script"><link rel="preload" href="/vue-starter/assets/js/2.b3f85a03.js" as="script"><link rel="preload" href="/vue-starter/assets/js/13.9c49e8e1.js" as="script"><link rel="prefetch" href="/vue-starter/assets/js/10.31a07633.js"><link rel="prefetch" href="/vue-starter/assets/js/11.ca853f5c.js"><link rel="prefetch" href="/vue-starter/assets/js/12.88cab930.js"><link rel="prefetch" href="/vue-starter/assets/js/14.a91830b2.js"><link rel="prefetch" href="/vue-starter/assets/js/3.c18845b2.js"><link rel="prefetch" href="/vue-starter/assets/js/4.6ed5998d.js"><link rel="prefetch" href="/vue-starter/assets/js/5.2df1b23a.js"><link rel="prefetch" href="/vue-starter/assets/js/6.cc85396a.js"><link rel="prefetch" href="/vue-starter/assets/js/7.e1b58a62.js"><link rel="prefetch" href="/vue-starter/assets/js/8.e32ca40d.js"><link rel="prefetch" href="/vue-starter/assets/js/9.e6386f4b.js">
+    <link rel="stylesheet" href="/vue-starter/assets/css/0.styles.69837f5c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-starter/" class="home-link router-link-active"><!----> <span class="site-name">你好</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-starter/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/vue-starter/foo/" class="nav-link router-link-active">
+  测试说明文档
+</a></div><div class="nav-item"><a href="https://bing.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-starter/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/vue-starter/foo/" class="nav-link router-link-active">
+  测试说明文档
+</a></div><div class="nav-item"><a href="https://bing.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  External
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vue-starter/foo/密码机联掉qps测试.html" class="sidebar-link">密码机联掉performance测试</a></li><li><a href="/vue-starter/foo/kafka压力测试.html" class="sidebar-link">单节点kafka的压力测试</a></li><li><a href="/vue-starter/foo/redis配置以及基准测试.html" class="active sidebar-link">redis配置以及基准测试文档</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-starter/foo/redis配置以及基准测试.html#★前置环境以及相关配置" class="sidebar-link">★前置环境以及相关配置</a></li><li class="sidebar-sub-header"><a href="/vue-starter/foo/redis配置以及基准测试.html#★基准测试以及结果展示" class="sidebar-link">★基准测试以及结果展示</a></li></ul></li><li><a href="/vue-starter/foo/dodo.html" class="sidebar-link">荒原狼🐺</a></li><li><a href="/vue-starter/foo/bar.html" class="sidebar-link">深山熊🐻</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="redis配置以及基准测试文档"><a href="#redis配置以及基准测试文档" class="header-anchor">#</a> redis配置以及基准测试文档</h1> <p></p><div class="table-of-contents"><ul><li><a href="#★前置环境以及相关配置">★前置环境以及相关配置</a><ul><li><a href="#平台环境">平台环境</a></li><li><a href="#redis专属配置">Redis专属配置</a></li></ul></li><li><a href="#★基准测试以及结果展示">★基准测试以及结果展示</a><ul><li><a href="#测试指令以及相关参数说明">测试指令以及相关参数说明</a></li><li><a href="#结果展示">结果展示</a></li></ul></li></ul></div><p></p> <h2 id="★前置环境以及相关配置"><a href="#★前置环境以及相关配置" class="header-anchor">#</a> ★前置环境以及相关配置</h2> <h3 id="平台环境"><a href="#平台环境" class="header-anchor">#</a> 平台环境</h3> <p><strong>k8s部署平台</strong>:</p> <ul><li><p>master <code>10.0.108.11</code></p></li> <li><p>node <code>10.0.108.12</code></p></li></ul> <p><strong>redis statefule容器资源配置</strong>：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code>          <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+            <span class="token key atrule">limits</span><span class="token punctuation">:</span>
+              <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">'4'</span>
+              <span class="token key atrule">memory</span><span class="token punctuation">:</span> 8Gi
+            <span class="token key atrule">requests</span><span class="token punctuation">:</span>
+              <span class="token key atrule">cpu</span><span class="token punctuation">:</span> <span class="token string">'4'</span>
+              <span class="token key atrule">memory</span><span class="token punctuation">:</span> 4Gi
+</code></pre></div><p><strong>永久持久化位置为nfs服务</strong>，地址为：</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code>  <span class="token key atrule">nfs</span><span class="token punctuation">:</span>
+    <span class="token key atrule">path</span><span class="token punctuation">:</span> /data/k8s/redis/kcsp
+    <span class="token key atrule">server</span><span class="token punctuation">:</span> 10.0.108.11
+</code></pre></div><p>关闭透明内存大页(<code>THP</code>)，同时设置<code>somaxconn</code>为4096，以满足redis的基本部署需求</p> <p><strong>预填充数据</strong>400万，初始内存占用300M，为后续压测预留一定空间：</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># Keyspace</span>
+<span class="token key attr-name">db0</span><span class="token punctuation">:</span><span class="token value attr-value">keys=4200003,expires=4000001,avg_ttl=33874581</span>
+
+<span class="token comment"># Memory</span>
+<span class="token key attr-name">used_memory</span><span class="token punctuation">:</span><span class="token value attr-value">380121856</span>
+<span class="token key attr-name">used_memory_human</span><span class="token punctuation">:</span><span class="token value attr-value">362.51M</span>
+<span class="token key attr-name">used_memory_rss</span><span class="token punctuation">:</span><span class="token value attr-value">394067968</span>
+<span class="token key attr-name">used_memory_rss_human</span><span class="token punctuation">:</span><span class="token value attr-value">375.81M</span>
+<span class="token key attr-name">used_memory_peak</span><span class="token punctuation">:</span><span class="token value attr-value">380307328</span>
+<span class="token key attr-name">used_memory_peak_human</span><span class="token punctuation">:</span><span class="token value attr-value">362.69M</span>
+<span class="token key attr-name">used_memory_peak_perc</span><span class="token punctuation">:</span><span class="token value attr-value">99.95%</span>
+</code></pre></div><h3 id="redis专属配置"><a href="#redis专属配置" class="header-anchor">#</a> Redis专属配置</h3> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token key attr-name">    save</span> <span class="token value attr-value">600 1</span>
+<span class="token key attr-name">    stop-writes-on-bgsave-error</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">    rdbcompression</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">    rdbchecksum</span> <span class="token value attr-value">yes</span>
+<span class="token key attr-name">    dbfilename</span> <span class="token value attr-value">dump_pv.rdb</span>
+<span class="token key attr-name">    dir</span> <span class="token value attr-value">/data</span>
+<span class="token key attr-name">    aof-use-rdb-preamble</span> <span class="token value attr-value">no</span>
+<span class="token key attr-name">    maxmemory</span> <span class="token value attr-value">7168mb</span>
+<span class="token key attr-name">    maxmemory-policy</span> <span class="token value attr-value">allkeys-lru</span>
+</code></pre></div><p><strong>简单说明</strong>：</p> <ol><li><p>最低10min持久化一次，持久化错误则关闭写入能力（因为这是服务出现问题的迹象）</p></li> <li><p>rdb文件压缩以及校验和开启</p></li> <li><p>配置关闭混合持久化模式（5.x以后版本默认打开）</p></li> <li><p>redis最大内存使用限制在7G，超过最大内存启用LRU过期策略</p></li></ol> <p><strong>相关部署文件</strong>可参见<code>10.0.108.11</code>节点下<code>/home/ranni/appyaml/redis-all.yaml</code>文件。</p> <h2 id="★基准测试以及结果展示"><a href="#★基准测试以及结果展示" class="header-anchor">#</a> ★基准测试以及结果展示</h2> <h3 id="测试指令以及相关参数说明"><a href="#测试指令以及相关参数说明" class="header-anchor">#</a> 测试指令以及相关参数说明</h3> <p>基准测试使用官方提供的<code>benchmark</code>工具，</p> <div class="language-bash extra-class"><pre class="language-bash"><code>./redis-benchmark -a <span class="token number">123456</span> -r <span class="token number">100000</span> -n <span class="token number">500000</span> -t set,get,hset
+ -l <span class="token operator">&gt;&gt;</span> /data/pod-inner-513.log <span class="token operator">&amp;</span>
+</code></pre></div><p>简单说明：</p> <ul><li>使用10万随机key做查询，模仿真实情况，每个方法单轮操作50万次</li> <li>默认50并发线程，关闭pipeline选项，凸显时延影响</li> <li>测试时长30+min</li> <li>只针对kcsp项目中常用的<code>set</code>、<code>get</code>、<code>hset</code>几个操作测试</li> <li>日志写到nfs盘的<code>pod-inner-513.log</code>，后面会提供一个可供查阅的地址</li> <li>使用默认payload，为3byte</li></ul> <p>备注：本次测试为进入Pod内部指令测试，并非使用NodePort端口转发的方式。</p> <h3 id="结果展示"><a href="#结果展示" class="header-anchor">#</a> 结果展示</h3> <p>测试后，redis内存占用约<code>1.48G</code>：</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token comment"># Memory</span>
+<span class="token key attr-name">used_memory</span><span class="token punctuation">:</span><span class="token value attr-value">1587152752</span>
+<span class="token key attr-name">used_memory_human</span><span class="token punctuation">:</span><span class="token value attr-value">1.48G</span>
+<span class="token key attr-name">used_memory_rss</span><span class="token punctuation">:</span><span class="token value attr-value">1744109568</span>
+<span class="token key attr-name">used_memory_rss_human</span><span class="token punctuation">:</span><span class="token value attr-value">1.62G</span>
+<span class="token key attr-name">used_memory_peak</span><span class="token punctuation">:</span><span class="token value attr-value">1590246536</span>
+<span class="token key attr-name">used_memory_peak_human</span><span class="token punctuation">:</span><span class="token value attr-value">1.48G</span>
+<span class="token key attr-name">used_memory_peak_perc</span><span class="token punctuation">:</span><span class="token value attr-value">99.81%</span>
+</code></pre></div><hr> <p>最近一次fork耗时为<code>5ms</code>:</p> <div class="language-properties extra-class"><pre class="language-properties"><code><span class="token key attr-name">latest_fork_usec</span><span class="token punctuation">:</span><span class="token value attr-value">5954</span>
+</code></pre></div><hr> <div class="language-textile extra-class"><pre class="language-textile"><code><span class="token phrase">SET: nan</span>
+
+  500000 requests completed in 11.02 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+<span class="token phrase">98.31% &lt;= 1 milliseconds
+99.92% &lt;= 2 milliseconds
+100.00% &lt;= 6 milliseconds
+100.00% &lt;= 6 milliseconds
+45351.48 requests per second</span>
+
+<span class="token phrase">GET: 0.00</span>
+
+  500000 requests completed in 10.87 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+<span class="token phrase">98.53% &lt;= 1 milliseconds
+99.94% &lt;= 2 milliseconds
+99.99% &lt;= 4 milliseconds
+100.00% &lt;= 5 milliseconds
+100.00% &lt;= 5 milliseconds
+46015.09 requests per second</span>
+
+<span class="token phrase">HSET: 0.00</span>
+
+  500000 requests completed in 13.47 seconds
+  50 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+<span class="token phrase">19.69% &lt;= 1 milliseconds
+99.15% &lt;= 2 milliseconds
+99.98% &lt;= 3 milliseconds
+99.99% &lt;= 4 milliseconds
+100.00% &lt;= 5 milliseconds
+100.00% &lt;= 6 milliseconds
+37114.02 requests per second
+</span></code></pre></div><p>以上片段截取自记录文件，<code>set</code>、<code>get</code>总体qps在4万+，而<code>hset</code>总体稳在3万+。需要说明一下，这些数值仅仅只是参考，测试方式以及部署的硬件环境都会对最终结果产生巨大影响。以硬件而论，比如pod运行机器的cpu主频、是否支持超频，内存频率、颗粒好坏、是否双通道等皆有影响。笔者之前在<code>10.0.108.1</code>集群上部署，其qps测试结果总体为6万+左右，而当前笔者的集群机器<code>10.0.108.12</code>为长城提供的整机。所以对数据本身要理性看待。</p> <p>就时延占比来看，<code>get</code>、<code>set</code>操做99%以上会集中在<code>1ms</code>时延，而更加复杂的<code>hset</code>操作99%的操作占比在<code>2ms</code>，总的来说三种操作99.9%的操作都会在<code>4ms</code>以内。</p> <p>以上数据完整记录可参见<code>10.0.108.11</code>节点下<code>/home/ranni/pod-inner-513.log</code>文件。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue-starter/foo/kafka压力测试.html" class="prev">
+        单节点kafka的压力测试
+      </a></span> <span class="next"><a href="/vue-starter/foo/dodo.html">
+        荒原狼🐺
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-starter/assets/js/app.4fb917a3.js" defer></script><script src="/vue-starter/assets/js/2.b3f85a03.js" defer></script><script src="/vue-starter/assets/js/13.9c49e8e1.js" defer></script>
+  </body>
+</html>
